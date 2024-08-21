@@ -1,0 +1,15 @@
+CREATE DATABASE CasoEstudioKN;
+GO
+
+
+USE CasoEstudioKN;
+GO
+
+CREATE TABLE CasasSistema (
+    IdCasa BIGINT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    DescripcionCasa VARCHAR(30) NOT NULL,
+    PrecioCasa DECIMAL(10,2) NOT NULL,
+    UsuarioAlquiler VARCHAR(30) NULL,
+    FechaAlquiler DATETIME NULL
+);
+GO
