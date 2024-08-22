@@ -1,33 +1,23 @@
-﻿using System;
+﻿using CasoEstudio2.BaseDatos;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace CasoEstudio2.Models
 {
     public class CasasModel
     {
-        [Key]
-        public long IdCasa { get; set; }
-
-        [Required]
-        [StringLength(30)]
-        public string DescripcionCasa { get; set; }
-
-        [Required]
-        [Range(0, double.MaxValue, ErrorMessage = "El precio debe ser un valor positivo.")]
-        public decimal PrecioCasa { get; set; }
-
-        [StringLength(30)]
-        public string UsuarioAlquiler { get; set; }
-
-        public DateTime? FechaAlquiler { get; set; }
-
-        // Propiedad calculada para mostrar el estado de la casa (Disponible o Reservada)
-        public string Estado
+       public List<CasasSistema> ConsultaCasas()
         {
-            get
+            using (var context = new CasoEstudioKNEntities())
             {
-                return string.IsNullOrEmpty(UsuarioAlquiler) ? "Disponible" : "Reservada";
+                return context.CasasSistema
+                               .ToList();
             }
         }
+
+
+
     }
 }

@@ -10,7 +10,7 @@
     <Property Name="UsuarioAlquiler" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="FechaAlquiler" Type="DateTime" Precision="3" />
   </EntityType>
-  <EntityContainer Name="CasoEstudioKNEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="CasoEstudioKNEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CasasSistema" EntityType="Self.CasasSistema" />
   </EntityContainer>
 </Schema>

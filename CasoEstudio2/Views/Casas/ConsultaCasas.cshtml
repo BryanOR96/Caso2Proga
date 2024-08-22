@@ -1,36 +1,36 @@
-﻿@model IEnumerable<CasoEstudio2.Models.CasasModel>
-
+﻿@model List<CasoEstudio2.BaseDatos.CasasSistema>
 @{
     ViewBag.Title = "Consulta de Casas";
 }
-
-<link rel="stylesheet" type="text/css" href="~/Content/styles.css" />
-
-<div class="container">
-    <h2>Consulta de Casas</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Usuario</th>
-                <th>Estado</th>
-                <th>Fecha de Alquiler</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var casa in Model)
-            {
+<div class="text-center">
+    <h2 class="text-primary">Consulta de Casas</h2>
+</div>
+<br />
+<br />
+<div class="row justify-content-center">
+    <div class="col-11">
+        <table class="table table-bordered table-hover table-striped text-center bg-light">
+            <thead class="thead-dark">
                 <tr>
-                    <td>@casa.DescripcionCasa</td>
-                    <td>@casa.PrecioCasa.ToString("C")</td>
-                    <td>@casa.UsuarioAlquiler ?? "N/A"</td>
-                    <td class="@(casa.Estado == "Disponible" ? "status-available" : "status-reserved")">
-                        @casa.Estado
-                    </td>
-                    <td>@casa.FechaAlquiler?.ToString("dd/MM/yyyy")</td>
+                    <th>Id Casa</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Usuario</th>
+                    <th>Fecha de Alquiler</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdCasa</td>
+                        <td>@item.DescripcionCasa</td>
+                        <td>@item.PrecioCasa</td>
+                        <td>@item.UsuarioAlquiler</td>
+                        <td>@item.FechaAlquiler</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
