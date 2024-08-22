@@ -156,6 +156,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BaseDatos.txt" />
     <Content Include="BaseDatos\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -2078,6 +2079,7 @@
     <Content Include="template\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="template\vendor\jquery\jquery.min.map" />
     <Content Include="template\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Views\Casas\TablaCompleta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

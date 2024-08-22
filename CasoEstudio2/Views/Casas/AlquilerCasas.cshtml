@@ -1,7 +1,61 @@
-﻿
+﻿@model CasoEstudio2.Entidades.Casas
 @{
     ViewBag.Title = "AlquilerCasas";
 }
 
-<h2>AlquilerCasas</h2>
+@using (Html.BeginForm("Alquilar", "Casas"))
+{
+    <div class="container my-4">
+        <div class="card border-primary">
+            <div class="card-header bg-primary text-white text-center">
+                <h4 class="mb-0">Alquiler de Casas</h4>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    @Html.Label("Casa: ")
+                    @Html.DropDownListFor(
+                        m => m.IdCasa,
+                        (SelectList)ViewBag.DisponiblesList,
+                        "Seleccione una opción",
+                        new { @class = "form-control form-control-sm", id = "IdCasa", required = "required" })
+                </div>
 
+                <div class="mb-3">
+                    @Html.Label("Precio Mensual:")
+                    @Html.TextBoxFor(m => m.PrecioCasa, new { id = "PrecioCasa", @class = "form-control form-control-sm", @readonly = "readonly" })
+                </div>
+
+                <div class="mb-3">
+                    @Html.Label("Usuario Alquiler:")
+                    @Html.TextBoxFor(m => m.UsuarioAlquiler, new { id = "UsuarioAlquiler", @class = "form-control form-control-sm", required = "required" })
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">Alquilar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#IdCasa').change(function() {
+            var casaId = $(this).val();
+
+            if (casaId) {
+                $.ajax({
+                    url: '@Url.Action("ObtenerPrecio", "Casas")',
+                    type: 'GET',
+                    data: { id: casaId },
+                    success: function(data) {
+                        $('#PrecioCasa').val(data.PrecioCasa);
+                    }
+                });
+            } else {
+                $('#PrecioCasa').val('');
+            }
+        });
+    });
+</script>

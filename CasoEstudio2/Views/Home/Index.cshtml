@@ -2,13 +2,16 @@
     ViewBag.Title = "Home";
 }
 <div class="container my-5 text-center">
-    <div class="jumbotron">
-        <h1 class="display-4">¡BIENVENIDO!</h1>
-        <p class="lead">Caso de Estudio #2 - GRUPO 6</p>
-        <hr class="my-4">
-        <div class="d-flex justify-content-center">
-            <a class="btn btn-primary mx-2" href="@Url.Action("ConsultaCasas","Casas")">CONSULTA</a>
-            <a class="btn btn-primary mx-2" href="@Url.Action("AlquilerCasas","Casas")">ALQUILER</a>
+    <div class="card shadow-lg border-light">
+        <div class="card-body">
+            <h1 class="display-4 fw-bold text-primary">¡Bienvenido!</h1>
+            <p class="lead text-secondary">Caso de Estudio #2 - GRUPO 6</p>
+            <hr class="my-4">
+
+            <div class="d-flex justify-content-center gap-4">
+                <a class="btn btn-info btn-lg mx-3" href="@Url.Action("ConsultaCasas","Casas")">Consulta</a>
+                <a class="btn btn-success btn-lg mx-3" href="@Url.Action("AlquilerCasas","Casas")">Alquiler</a>
+            </div>
         </div>
     </div>
 </div>
